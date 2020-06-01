@@ -31,6 +31,7 @@ export default {
   },
 
 computed:{
+    //computed properties help you obtain the data from the store
     products(){
       return this.$store.state.products
     },
@@ -40,6 +41,10 @@ computed:{
 
   },
   methods:{
+    
+        //N/B: even if you are not performing any form of assynchronous task, its always better practice, to instead of directly committing a mutation directly from your component,
+        //its better to always dispatch an action, wc ll then commit the mutation 
+        
     reducePrice: function(amount)  {
         // this.$store.state.products.forEach( product => {
         //   product.price -= 1;

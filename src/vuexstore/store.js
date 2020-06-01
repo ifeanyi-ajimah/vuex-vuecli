@@ -44,8 +44,12 @@ export const store_data = new Vuex.Store({
 
     //we use actions to run asynchronous codes .  it takes parameter called context
     //we shouldn't use asynchronous codes in mutations . actions is an intermediary btw the component emmiting the mutation and the mutation itself
-actions:{
+
+    actions:{
       
+        //N/B: even if you are not performing any form of assynchronous task, its always better practice, to instead of directly committing a mutation directly from your component,
+        //its better to always dispatch an action, wc ll then commit the mutation 
+
         reducePrice: (context, payload) => { //payload are the parameter passed from the vue component
             setTimeout( function(){
             context.commit('reducePrice',payload)//this is to fire the reduce price mutation
